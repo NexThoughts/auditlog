@@ -7,6 +7,8 @@ import groovy.json.JsonSlurper
 
 class UserService {
 
+    def grailsApplication
+
     User register(UserCO userCO) {
         if (!userCO.validate()) {
             return null
@@ -23,7 +25,8 @@ class UserService {
     }
 
     def createAccount() {
-        URL url = new URL("http://dev.ethereum.com:8080/api/accounts/create/")
+        String serverUrl = grailsApplication.config.grails.serverURL
+        URL url = new URL("${serverUrl}accounts/create/")
         HttpURLConnection connection = (HttpURLConnection) url.openConnection()
         connection.setDoOutput(true)
         connection.setRequestMethod("POST")
@@ -53,7 +56,8 @@ class UserService {
     }
 
     String generateAccessToken() {
-        URL url = new URL("http://dev.ethereum.com:8080/api/login")
+        String serverUrl = grailsApplication.config.grails.serverURL
+        URL url = new URL("${serverUrl}login")
 
         HttpURLConnection connection = (HttpURLConnection) url.openConnection()
         connection.setDoOutput(true)
@@ -99,7 +103,8 @@ class UserService {
     }
 
     String registerAuditLog(AuditLog auditLog, String uniqueId, String access_token) {
-        URL url = new URL("http://dev.ethereum.com:8080/api/auditLog/deploy")
+        String serverUrl = grailsApplication.config.grails.serverURL
+        URL url = new URL("${serverUrl}auditLog/deploy")
         HttpURLConnection connection = (HttpURLConnection) url.openConnection()
         connection.setDoOutput(true)
         connection.setRequestMethod("GET")
@@ -134,7 +139,8 @@ class UserService {
     }
 
     String fetchAuditData(AuditLog auditLog) {
-        URL url = new URL("http://dev.ethereum.com:8080/api/auditLog/read")
+        String serverUrl = grailsApplication.config.grails.serverURL
+        URL url = new URL("${serverUrl}auditLog/read")
         HttpURLConnection connection = (HttpURLConnection) url.openConnection()
         connection.setDoOutput(true)
         connection.setRequestMethod("GET")

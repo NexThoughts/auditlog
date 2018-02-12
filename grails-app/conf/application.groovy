@@ -13,6 +13,8 @@ environments {
             logSql = false
             password = "nextdefault"
         }
+        server.port = 8090
+        blocklittle.url = "http://dev.ethereum.com:8080/api/"
     }
     test {
         dataSource {
@@ -41,6 +43,8 @@ environments {
                 validationQuery = "SELECT 1"
             }
         }
+        server.port = 8090
+        blocklittle.url = "http://blocklittle.com/api/"
     }
 }
 
