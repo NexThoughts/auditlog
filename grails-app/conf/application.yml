@@ -76,3 +76,6 @@ hibernate:
 grails:
     gorm:
         failOnError: true
+---
+server:
+    port: 8090
