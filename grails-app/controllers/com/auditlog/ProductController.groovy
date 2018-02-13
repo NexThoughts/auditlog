@@ -13,6 +13,7 @@ class ProductController {
     }
 
     def updateName() {
+        println params
         User user = springSecurityService.currentUser as User
         String uniqueid = params.pk
         String newValue = params.value
