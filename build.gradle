@@ -76,3 +76,6 @@ dependencies {
 task wrapper(type: Wrapper) {
     gradleVersion = gradleWrapperVersion
 }
+
+String env = System.getProperty('grails.env') ?: 'prod'
+war.baseName "ROOT"

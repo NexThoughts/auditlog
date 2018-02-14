@@ -26,11 +26,12 @@ environments {
         }
     }
     production {
+        grails.serverURL = "http://audit.blocklittle.com"
         dataSource {
             username = "block_little"
             password = "Gh6vL8Enykm9qZ"
-            dbCreate = "none"
-            url = "jdbc:mysql://localhost:3306/auditlog?autoreconnect=true&useUnicode=yes&characterEncoding=UTF-8"
+            dbCreate = "update"
+            url = "jdbc:mysql://localhost:3306/auditlog_prod?autoreconnect=true&useUnicode=yes&characterEncoding=UTF-8"
             pooled = true
             properties {
                 maxActive = -1
