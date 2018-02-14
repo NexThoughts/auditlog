@@ -26,7 +26,7 @@ environments {
         }
     }
     production {
-        grails.serverURL = "http://audit.blocklittle.com"
+        grails.serverURL = "http://demo.blocklittle.com"
         dataSource {
             username = "block_little"
             password = "Gh6vL8Enykm9qZ"
